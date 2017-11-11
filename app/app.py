@@ -11,6 +11,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+  c = sqlite3.connect('database.db')
+  c.execute('CREATE TABLE transcripts (userid int, transcript_id int, transcript text, word_count int)')
+
   return render_template('index.html')
 
 
