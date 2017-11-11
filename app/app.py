@@ -1,22 +1,11 @@
 from flask import Flask,render_template
+from textblob import TextBlob
 import io
 import os
-
-# Imports the Google Cloud client library
-from google.cloud import speech
-from google.cloud.speech import enums
-from google.cloud.speech import types
-
-# Google Credentials
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='runa_credentials.json'
-
-# Instantiates a client
-client = speech.SpeechClient()
-
-config = types.RecognitionConfig(
-  encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
-  sample_rate_hertz=16000,
-  language_code='en-US')
+import requests
+import base64
+import json
+import sqlite3
 
 app = Flask(__name__)
 
@@ -27,21 +16,36 @@ def index():
 
 @app.route('/save_transcript')
 def save_transcript():
+  API_KEY = "AIzaSyAnLMPmccqUzaTEkrF09pRpE8JSRd2jjA4"
+  url = "https://speech.googleapis.com/v1beta1/speech:syncrecognize?key="+API_KEY
+
+  conn = sqlite3.connect('database.db')
+
   # The name of the audio file to transcribe
-  file_name = os.path.join(
+  speech_file_path = os.path.join(
       os.path.dirname(__file__),
       'resources',
-      'audio.raw')
+      'Runa.flac')
 
-  # Loads the audio into memory
-  with io.open(file_name, 'rb') as audio_file:
-      content = audio_file.read()
-      audio = types.RecognitionAudio(content=content)
-  # Detects speech in the audio file
-  response = client.recognize(config, audio)
+  # encoding audio file with Base64 (~200KB, 15 secs)
+  with open(speech_file_path, 'rb') as speech:
+      speech_content = base64.b64encode(speech.read())
 
-  for result in response.results:
-    print('Transcript: {}'.format(result.alternatives[0].transcript))
+  payload = {
+      'config': {
+          'encoding': "FLAC",
+          'sampleRate': 16000,
+      },
+      'audio': {
+          'content': speech_content.decode('UTF-8'),
+      },
+  }
+
+  # POST request to Google Speech API
+  r = requests.post(url, data=json.dumps(payload))
+  text = r.json()['results'][0]['alternatives'][0]['transcript']
+  print(TextBlob(text).tags)
+  return text
 
 @app.route('/end_conversation', methods=['GET'])
 def end_conversation():
