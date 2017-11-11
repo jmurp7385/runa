@@ -7,6 +7,9 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 
+# Google Credentials
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='runa_credentials.json'
+
 # Instantiates a client
 client = speech.SpeechClient()
 
@@ -36,7 +39,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return "Hello World"
+  return url_for('index.html')
 
 if __name__=='__main__':
   app.run(debug=True)
