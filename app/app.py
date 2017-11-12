@@ -34,6 +34,10 @@ def responses():
 def progress_vocab():
   return render_template('progress_vocab.html')
 
+@app.route('/progress_milestone')
+def progress_milestone():
+  return render_template('progress_milestone.html')
+
 @app.route('/create_db')
 def create_db():
   conn = sqlite3.connect('database.db')

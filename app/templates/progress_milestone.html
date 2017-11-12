@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Runa</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/progress.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/progress_milestone.css') }}">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="{{ url_for('static',filename='js/d3_donut.js') }}"></script>
+</head>
+  <body>
+    <header>Milestones</header>
+
+    <div class="endpoint_top"></div>
+    <div class="timeline_1"></div>
+    <div class="words_100_date">Sep 12, 2017</div>
+    <div class="words_100_text">100 vocab words</div>
+    <div class="words_100"></div>
+    <div class="timeline_2"></div>
+    <div class="sentence_length_date">Sep 14, 2017</div>
+    <div class="sentence_length_text">2 word sentences</div>
+    <div class="sentence_length"></div>
+    <div class="timeline_3"></div>
+    <div class="noun_count_date">Oct 20, 2017</div>
+    <div class="noun_count_text">60 nouns</div>
+    <div class="noun_count"></div>
+    <div class="timeline_4"></div>
+    <div class="endpoint_bottom"></div>
+
+    <div class="page_indicator">
+      <form class="indicator_form" action="/progress_vocab">
+        <button class="indicator"></button>
+      </form>
+      <button class="indicator active"></button>
+    </div>
+    <footer>
+      <form class="footer_form" action="/record_speech">
+        <button>
+          <div class="footer_tab">
+          <img class="record" src="{{ url_for('static', filename='img/icon_mic_tab_gray.png') }}" alt="Record">
+          <h6 class="record_text">Record</h6>
+          </div>
+        </button>
+      </form>
+      <form class="footer_form" action="/progress_vocab">
+        <button>
+          <div class="footer_tab">
+            <img class="progress" src="{{ url_for('static', filename='img/icon_progress_tab_purple.png') }}" alt="Progress">
+            <h6 class="progress_text">Progress</h6>
+          </div>
+        </button>
+      </form>
+    </footer>
+  </body>
+</html>

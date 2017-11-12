@@ -1,0 +1,146 @@
+.timeline_1 {
+  width: 10px;
+  height: 160px;
+  background: #602B62;
+  border-radius: 5px;
+  position: fixed;
+  top: 245px;
+  left: 480px;
+}
+
+.timeline_2 {
+  width: 10px;
+  height: 55px;
+  background: #602B62;
+  border-radius: 5px;
+  position: fixed;
+  top: 450px;
+  left: 480px;
+}
+
+.timeline_3 {
+  width: 10px;
+  height: 405px;
+  background: #602B62;
+  border-radius: 5px;
+  position: fixed;
+  top: 550px;
+  left: 480px;
+}
+
+.timeline_4 {
+  width: 10px;
+  height: 405px;
+  background: #602B62;
+  border-radius: 5px;
+  position: fixed;
+  top: 1000px;
+  left: 480px;
+}
+
+.endpoint_top {
+  width: 50px;
+  height: 50px;
+  background-color: #602B62;
+  border-radius: 25px;
+  position: fixed;
+  top: 200px;
+  left: 460px;
+}
+
+.words_100 {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #602B62;
+  border-width: 5px;
+  position: fixed;
+  top: 400px;
+  left: 457px;
+}
+
+.words_100_date {
+  position: fixed;
+  top: 400px;
+  left: 230px;
+  font-weight: bold;
+  font-size: 25px;
+  color: #602B62;
+}
+
+.words_100_text {
+  position: fixed;
+  top: 425px;
+  left: 205px;
+  font-size: 25px;
+  color: #602B62;
+}
+
+.sentence_length {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #602B62;
+  border-width: 5px;
+  position: fixed;
+  top: 500px;
+  left: 457px;
+}
+
+.sentence_length_date {
+  position: fixed;
+  top: 510px;
+  left: 575px;
+  font-weight: bold;
+  font-size: 25px;
+  color: #602B62;
+}
+
+.sentence_length_text {
+  position: fixed;
+  top: 535px;
+  left: 550px;
+  font-size: 25px;
+  color: #602B62;
+}
+
+.noun_count {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #602B62;
+  border-width: 5px;
+  position: fixed;
+  top: 950px;
+  left: 457px;
+}
+
+.noun_count_date {
+  position: fixed;
+  top: 950px;
+  left: 230px;
+  font-weight: bold;
+  font-size: 25px;
+  color: #602B62;
+}
+
+.noun_count_text {
+  position: fixed;
+  top: 975px;
+  left: 250px;
+  font-size: 25px;
+  color: #602B62;
+}
+
+.endpoint_bottom {
+  width: 50px;
+  height: 50px;
+  background-color: #602B62;
+  border-radius: 25px;
+  position: fixed;
+  left: 460px;
+  bottom: 300px;
+}
