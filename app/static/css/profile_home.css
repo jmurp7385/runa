@@ -1,0 +1,43 @@
+.date_container {
+  text-align: center;
+  margin: auto;
+  margin-top: 400px;
+  font-size: 50px;
+}
+
+p {
+  color: yellow;
+  opacity: .6;
+}
+
+.date {
+  color: white;
+  opacity: 1;
+  font-size: 100px;
+  margin-top: 5px;
+}
+
+button {
+  width: 500px;
+  height: 100px;
+  margin: auto;
+  display: block;
+  margin-top: 25px;
+  background: #ccc;
+  border-radius: 25px;
+  font-size: 50px;
+  color: #602B62;
+}
+
+.start_conversation {
+  height: 200px;
+}
+
+.progress_button {
+  background: rgba(255,255,255,.4);
+  color: #fff;
+}
+
+.buttons_container {
+  margin-top: 600px;
+}

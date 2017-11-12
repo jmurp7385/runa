@@ -13,10 +13,31 @@ app = Flask(__name__)
 def index():
   return render_template('index.html')
 
+@app.route('/profile_home')
+def profile_home():
+  return render_template('profile_home.html')
+
+@app.route('/record_speech')
+def record_speech():
+  return render_template('record_speech.html')
+
+@app.route('/stop_recording')
+def stop_recording():
+  return render_template('stop_recording.html')
+
+@app.route('/responses')
+def responses():
+  responses = ["more cookie","momma"]
+  return render_template('responses.html', responses=responses)
+
+@app.route('/progress_vocab')
+def progress_vocab():
+  return render_template('progress_vocab.html')
+
 @app.route('/create_db')
-def index():
-  c = sqlite3.connect('database.db')
-  c.execute('CREATE TABLE transcripts (userid int, transcript_id int, transcript text, word_count int)')
+def create_db():
+  conn = sqlite3.connect('database.db')
+  conn.execute('CREATE TABLE transcripts (userid int, transcript_id int, transcript text, word_count int)')
 
   return 'db created'
 
@@ -26,7 +47,7 @@ def save_transcript():
   API_KEY = "AIzaSyAnLMPmccqUzaTEkrF09pRpE8JSRd2jjA4"
   url = "https://speech.googleapis.com/v1beta1/speech:syncrecognize?key="+API_KEY
 
-  conn = sqlite3.connect('database.db')
+  # conn = sqlite3.connect('database.db')
 
   # The name of the audio file to transcribe
   speech_file_path = os.path.join(
@@ -51,7 +72,8 @@ def save_transcript():
   # POST request to Google Speech API
   r = requests.post(url, data=json.dumps(payload))
   text = r.json()['results'][0]['alternatives'][0]['transcript']
-  print(TextBlob(text).tags)
+  blob = TextBlob(text).tags
+  print(blob)
   return text
 
 @app.route('/end_conversation', methods=['GET'])

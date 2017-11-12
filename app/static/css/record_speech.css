@@ -1,0 +1,39 @@
+.mic_button {
+  width: 500px;
+  height: 100px;
+  margin: auto;
+  display: block;
+  margin-top: 25px;
+  background: #ccc;
+  border-radius: 25px;
+  font-size: 50px;
+  color: #602B62;
+  height: 268px;
+  width: 268px;
+  margin-left: 36%;
+  margin-top: 70%;
+  background-image: url(https://files.slack.com/files-pri/T09HE32E4-F7Z0X1269/icon_mic_record.png);
+  background-color: rgba(0,0,0,0);
+  border-style: none;
+  outline: none;
+}
+
+.button {
+  width: 500px;
+  height: 100px;
+  margin: auto;
+  display: block;
+  margin-top: 25px;
+  background: #ccc;
+  border-radius: 25px;
+  font-size: 50px;
+  color: #602B62;
+}
+
+.end_conversation {
+  height: 200px;
+}
+
+.buttons_container {
+  margin-top: 300px;
+}

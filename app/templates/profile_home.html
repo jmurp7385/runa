@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Runa</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/profile_home.css') }}">
+</head>
+<body>
+  <div class="date_container">
+    <p>today is</p>
+    <p class="date">11/12/2017</p>
+  </div>
+  <div class="buttons_container">
+    <form action="/record_speech">
+      <button class="start_conversation">start conversation</button>
+    </form>
+    <form action="/progress_vocab">
+      <button class="progress_button">view progress</button>
+    </form>
+  </div>
+</body>
+</html>
